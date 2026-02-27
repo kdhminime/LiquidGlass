@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
@@ -22,15 +23,47 @@ body {
 }
 
 .glass-panel {
-  background: rgba(255, 255, 255, 0.1);
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
   border-radius: 73.5px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(2.4px);
-  border: 1.6px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2.5px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid transparent;
+  background-clip: padding-box;
+}
+
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 73.5px;
+  padding: 1.5px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 .description {
-  font-family: 'Inter', sans-serif;
   font-weight: 100;
   font-size: 48px;
 }
@@ -58,8 +91,7 @@ body {
   justify-content: center;
   width: 260px;
   height: 120px;
-  font-family: 'PT Sans Narrow', sans-serif;
-  font-weight: 400;
+  font-weight: 200;
   font-size: 96px;
   cursor: pointer;
 }
@@ -81,7 +113,83 @@ body {
   bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
-  font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 100;
+}
+
+.project-container {
+  height: 800px;
+  display: flex;
+  flex-direction: row;
+}
+
+.video-container {
+  border-radius: 30px;
+  height: 100%;
+  overflow: hidden;
+  max-width: 1200px;
+}
+
+.description-container {
+  border-radius: 73.5px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-description{
+  background-color: rgba(78, 78, 78, 0.5);
+  padding: 32px;
+  top: 48px;
+  right: 24px;
+  width: 300px;
+  height: 250px;
+  font-size: 16px;
+}
+
+.title {
+  font-size: 24px;
+  padding-bottom: 16px;
+}
+
+.description {
+  font-size: 16px;
+}
+
+.radio-container {
+  background-color: rgba(78, 78, 78, 0.4);
+  width: 440px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio-text-container {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  gap: 48px;
+}
+
+.radio-text {
+  font-size: 32px;
+  font-weight: 100;
+  width: 80px;
+  text-align: center;
+}
+
+.radio {
+  background-color: rgba(78, 78, 78, 0.2);
+  position: absolute;
+  left: 30px;
+  top: 8%;
+  transform: translateY(-50%);
+  width: 120px;
+  height: 44px;
 }

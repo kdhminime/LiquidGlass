@@ -1,11 +1,16 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
+import Project from './Project'
+import Radios from './Radios'
 
 const tabs = ['VFX', 'AI', 'ART']
 
 function App() {
+  const [navIndex, setNavIndex] = useState(0)
+
   return (
     <>
-      <div className="container">
+      {/* <div className="container">
         <div className="description">
           a designer based in Vancouver
         </div>
@@ -24,7 +29,9 @@ function App() {
             </motion.div>
           ))}
         </div>
-      </div>
+      </div> */}
+      <Project url='https://www.youtube.com/embed/P96w4TTkR7I' title={"title"} description={"yo"}/>
+      <Radios navIndex={navIndex} setNavIndex={setNavIndex} />
       <div className="rights">
         &copy; 2026 JAEMIN RYU ALL RIGHTS RESERVED
       </div>
