@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-const options = ['VFX', 'API', 'ART']
+const options = ['VFX', 'AI', 'ART']
 
 function Radios({ navIndex, setNavIndex }) {
   return (

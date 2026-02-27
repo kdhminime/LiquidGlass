@@ -1,23 +1,29 @@
 import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
+
+const CONTAINER_HEIGHT = 800
 
 function Project({ url, title, description }) {
-  const [aspectRatio, setAspectRatio] = useState('16 / 9')
+  const [videoWidth, setVideoWidth] = useState(CONTAINER_HEIGHT * (16 / 9))
 
   useEffect(() => {
     async function fetchAspectRatio() {
       try {
-        // Extract video ID and platform
         if (url.includes('vimeo')) {
           const videoId = url.split('/').pop()
           const response = await fetch(
             `https://vimeo.com/api/oembed.json?url=https://vimeo.com/${videoId}`
           )
           const data = await response.json()
-          setAspectRatio(`${data.width} / ${data.height}`)
+          const newWidth = CONTAINER_HEIGHT * (data.width / data.height)
+          setVideoWidth(Math.min(newWidth, 1200))
+        } else {
+          // YouTube defaults to 16:9
+          setVideoWidth(CONTAINER_HEIGHT * (16 / 9))
         }
-        // YouTube doesn't have a simple public API for this, defaults to 16:9
       } catch (error) {
         console.error('Failed to fetch video dimensions:', error)
+        setVideoWidth(CONTAINER_HEIGHT * (16 / 9))
       }
     }
 
@@ -27,7 +33,11 @@ function Project({ url, title, description }) {
   return (
     <>
      <div className='glass-panel project-container'>
-        <div className='video-container' style={{ aspectRatio }}>
+        <motion.div
+          className='video-container'
+          animate={{ width: videoWidth }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
+        >
           <iframe
             src={url}
             width='100%'
@@ -36,7 +46,7 @@ function Project({ url, title, description }) {
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
             allowFullScreen
           />
-        </div>
+        </motion.div>
         <div className='description-container'>
             <div className='project-description glass-panel'>
                 <div className='title'>{title}</div>

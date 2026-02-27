@@ -139,6 +139,7 @@ body {
   max-width: 1550px;
   display: flex;
   flex-direction: row;
+  transition: width 0.4s ease-out;
 }
 
 .video-container {
@@ -146,6 +147,8 @@ body {
   height: 100%;
   overflow: hidden;
   max-width: 1200px;
+  min-width: 600px;
+  transition: width 0.4s ease-out;
 }
 
 .description-container {
@@ -161,7 +164,7 @@ body {
   top: 48px;
   right: 24px;
   width: 300px;
-  height: 250px;
+  min-height: 200px;
   font-size: 16px;
 }
 
@@ -210,4 +213,35 @@ body {
   transform: translateY(-50%);
   width: 120px;
   height: 44px;
+}
+
+.project-viewer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  position: relative;
+}
+
+.arrow {
+  width: 60px;
+  height: 60px;
+  border: none;
+  cursor: pointer;
+  font-size: 36px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.arrow-left {
+  position: absolute;
+  left: -100px;
+}
+
+.arrow-right {
+  position: absolute;
+  right: -100px;
 }
