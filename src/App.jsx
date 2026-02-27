@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Project from './Project'
 import Radios from './Radios'
@@ -6,10 +6,52 @@ import projects from './data/projects.json'
 
 const tabs = ['VFX', 'AI', 'ART']
 
+// Get all Vimeo URLs from projects
+const getAllVimeoUrls = () => {
+  const urls = []
+  Object.values(projects).forEach(category => {
+    category.forEach(project => {
+      if (project.url.includes('vimeo')) {
+        urls.push(project.url)
+      }
+    })
+  })
+  return urls
+}
+
 function App() {
   const [navIndex, setNavIndex] = useState(0)
   const [showProjects, setShowProjects] = useState(false)
   const [projectIndex, setProjectIndex] = useState(0)
+  const [aspectRatios, setAspectRatios] = useState({})
+
+  // Pre-fetch all Vimeo aspect ratios on initial load
+  useEffect(() => {
+    async function prefetchAspectRatios() {
+      const vimeoUrls = getAllVimeoUrls()
+      const ratios = {}
+
+      await Promise.all(
+        vimeoUrls.map(async (url) => {
+          try {
+            const videoId = url.split('/').pop()
+            const response = await fetch(
+              `https://vimeo.com/api/oembed.json?url=https://vimeo.com/${videoId}`
+            )
+            const data = await response.json()
+            ratios[url] = `${data.width} / ${data.height}`
+          } catch (error) {
+            console.error('Failed to fetch video dimensions:', error)
+            ratios[url] = '16 / 9'
+          }
+        })
+      )
+
+      setAspectRatios(ratios)
+    }
+
+    prefetchAspectRatios()
+  }, [])
 
   const currentProjects = projects[tabs[navIndex]]
   const currentProject = currentProjects[projectIndex]
@@ -99,6 +141,7 @@ function App() {
                     url={currentProject.url}
                     title={currentProject.title}
                     description={currentProject.description}
+                    aspectRatio={aspectRatios[currentProject.url] || '16 / 9'}
                   />
                   {hasNext && (
                     <motion.button

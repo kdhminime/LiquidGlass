@@ -1,30 +1,4 @@
-import { useState, useEffect } from 'react'
-
-function Project({ url, title, description }) {
-  const [aspectRatio, setAspectRatio] = useState('16 / 9')
-
-  useEffect(() => {
-    async function fetchAspectRatio() {
-      try {
-        if (url.includes('vimeo')) {
-          const videoId = url.split('/').pop()
-          const response = await fetch(
-            `https://vimeo.com/api/oembed.json?url=https://vimeo.com/${videoId}`
-          )
-          const data = await response.json()
-          setAspectRatio(`${data.width} / ${data.height}`)
-        } else {
-          setAspectRatio('16 / 9')
-        }
-      } catch (error) {
-        console.error('Failed to fetch video dimensions:', error)
-        setAspectRatio('16 / 9')
-      }
-    }
-
-    fetchAspectRatio()
-  }, [url])
-
+function Project({ url, title, description, aspectRatio = '16 / 9' }) {
   return (
     <div className='glass-panel project-container'>
       <div className='video-container' style={{ aspectRatio }}>
