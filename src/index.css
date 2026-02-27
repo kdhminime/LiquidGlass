@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(180deg, #F0EFEB 0%, #4A6275 100%);
+  min-height: 100vh;
+  margin: 0;
+  color: white;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 73.5px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2.4px);
+  border: 1.6px solid rgba(255, 255, 255, 0.3);
+}
+
+.description {
+  font-family: 'Inter', sans-serif;
+  font-weight: 100;
+  font-size: 48px;
+}
+
+.name {
+  position: relative;
+  top: -65px;
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 160px;
+}
+
+.tabs {
+  position: relative;
+  top: -140px;
+  width: 876px;
+  height: 120px;
+}
+
+.tab {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 260px;
+  height: 120px;
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-weight: 400;
+  font-size: 96px;
+  cursor: pointer;
+}
+
+.tab-1 {
+  left: 0;
+}
+
+.tab-2 {
+  left: 308px;
+}
+
+.tab-3 {
+  left: 616px;
+}
+
+.rights {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 100;
+}
