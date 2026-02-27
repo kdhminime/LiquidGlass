@@ -40,7 +40,7 @@ function Project({ url, title, description }) {
         <div className='description-container'>
             <div className='project-description glass-panel'>
                 <div className='title'>{title}</div>
-                <div className='description'>{description}</div>
+                <div className='project-description-text'>{description}</div>
             </div>
         </div>
      </div>

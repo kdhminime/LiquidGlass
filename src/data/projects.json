@@ -1,0 +1,43 @@
+{
+  "VFX": [
+    {
+      "url": "https://www.youtube.com/embed/P96w4TTkR7I",
+      "title": "FX Demo Reel 2025",
+      "description": "An FX demo reel created using Houdini and Nuke X, showcasing procedural simulations and high-end compositing workflows."
+    }
+  ],
+  "AI": [
+    {
+      "url": "https://player.vimeo.com/video/1166855862",
+      "title": "DOMO Valentine's Day Commercial Video (2026)",
+      "description": "A social media commercial created for DOMO, a British Columbia–based tea company, developed in response to the brand's marketing brief."
+    },
+    {
+      "url": "https://player.vimeo.com/video/1166855560",
+      "title": "DOMO London Fog Commercial Video (2026)",
+      "description": "A social media commercial created for DOMO, a British Columbia–based tea company, developed in response to the brand's marketing brief."
+    },
+    {
+      "url": "https://player.vimeo.com/video/1166856113",
+      "title": "DOMO Vanilla Matcha Commercial Video (2026)",
+      "description": "A cinematic commercial produced for DOMO, a British Columbia–based tea company, developed in response to the brand's creative brief."
+    },
+    {
+      "url": "https://player.vimeo.com/video/1166856584",
+      "title": "DOMO Sweet Dream Commercial Video (2026)",
+      "description": "A social media commercial created for DOMO, a British Columbia–based tea company, developed in response to the brand's marketing brief."
+    }
+  ],
+  "ART": [
+    {
+      "url": "https://www.youtube.com/embed/5PBApE-Evmc",
+      "title": "Campbell River (2024)",
+      "description": "Captured the coastal scenery of Campbell River, a beautiful seaside town in British Columbia, Canada."
+    },
+    {
+      "url": "https://www.youtube.com/embed/jxTEEG3GCC0",
+      "title": "Saturna (2025)",
+      "description": "Cinematically edited footage captured during my stay on Saturna Island, a beautiful island in British Columbia, Canada."
+    }
+  ]
+}

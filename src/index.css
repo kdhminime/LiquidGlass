@@ -108,6 +108,23 @@ body {
   left: 616px;
 }
 
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 32px;
+  padding: 48px;
+}
+
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
 .rights {
   position: absolute;
   bottom: 16px;
@@ -119,6 +136,7 @@ body {
 
 .project-container {
   height: 800px;
+  max-width: 1550px;
   display: flex;
   flex-direction: row;
 }
@@ -131,7 +149,6 @@ body {
 }
 
 .description-container {
-  border-radius: 73.5px;
   width: 350px;
   display: flex;
   flex-direction: column;
@@ -153,8 +170,9 @@ body {
   padding-bottom: 16px;
 }
 
-.description {
+.project-description-text {
   font-size: 16px;
+  font-weight: 100;
 }
 
 .radio-container {

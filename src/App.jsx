@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Project from './Project'
 import Radios from './Radios'
+import projects from './data/projects.json'
 
 const tabs = ['VFX', 'AI', 'ART']
 
@@ -10,7 +11,7 @@ function App() {
 
   return (
     <>
-      {/* <div className="container">
+      <div className="container">
         <div className="description">
           a designer based in Vancouver
         </div>
@@ -29,9 +30,20 @@ function App() {
             </motion.div>
           ))}
         </div>
+      </div>
+      {/* <div className="main-content">
+        <Radios navIndex={navIndex} setNavIndex={setNavIndex} />
+        <div className="projects-container">
+          {projects[tabs[navIndex]].map((project, index) => (
+            <Project
+              key={index}
+              url={project.url}
+              title={project.title}
+              description={project.description}
+            />
+          ))}
+        </div>
       </div> */}
-      <Project url='https://www.youtube.com/embed/P96w4TTkR7I' title={"title"} description={"yo"}/>
-      <Radios navIndex={navIndex} setNavIndex={setNavIndex} />
       <div className="rights">
         &copy; 2026 JAEMIN RYU ALL RIGHTS RESERVED
       </div>
