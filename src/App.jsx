@@ -27,6 +27,14 @@ function App() {
     setProjectIndex(0)
   }
 
+  const handlePrev = () => {
+    setProjectIndex(projectIndex - 1)
+  }
+
+  const handleNext = () => {
+    setProjectIndex(projectIndex + 1)
+  }
+
   return (
     <>
       <AnimatePresence mode="wait">
@@ -69,31 +77,41 @@ function App() {
           >
             <Radios navIndex={navIndex} setNavIndex={handleCategoryChange} />
             <div className="project-viewer">
-              {hasPrev && (
-                <motion.button
-                  className="arrow arrow-left glass-panel"
-                  onClick={() => setProjectIndex(projectIndex - 1)}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={`${navIndex}-${projectIndex}`}
+                  className="project-with-arrows"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1, transition: { duration: 0.4, delay: 0.4 } }}
+                  exit={{ opacity: 0, transition: { duration: 0.4 } }}
                 >
-                  ‹
-                </motion.button>
-              )}
-              <Project
-                url={currentProject.url}
-                title={currentProject.title}
-                description={currentProject.description}
-              />
-              {hasNext && (
-                <motion.button
-                  className="arrow arrow-right glass-panel"
-                  onClick={() => setProjectIndex(projectIndex + 1)}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  ›
-                </motion.button>
-              )}
+                  {hasPrev && (
+                    <motion.button
+                      className="arrow arrow-left glass-panel"
+                      onClick={handlePrev}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      ‹
+                    </motion.button>
+                  )}
+                  <Project
+                    url={currentProject.url}
+                    title={currentProject.title}
+                    description={currentProject.description}
+                  />
+                  {hasNext && (
+                    <motion.button
+                      className="arrow arrow-right glass-panel"
+                      onClick={handleNext}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      ›
+                    </motion.button>
+                  )}
+                </motion.div>
+              </AnimatePresence>
             </div>
           </motion.div>
         )}
