@@ -13,6 +13,7 @@ body {
   user-select: none;
   -webkit-user-select: none;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .container {
@@ -137,7 +138,8 @@ body {
 
 .project-container {
   height: 800px;
-  max-width: 1550px;
+  max-width: 1000px;
+  max-height: 600px;
   display: flex;
   flex-direction: row;
   transition: width 0.4s ease-out;
@@ -254,4 +256,32 @@ body {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+}
+
+/* Wide screens (16:9) - default, no changes needed */
+@media (min-aspect-ratio: 16/9) and (max-aspect-ratio: 21/9) {
+  .project-container {
+    height: 800px;
+    max-width: 1000px;
+    max-height: 600px;
+  }
+
+  .video-container {
+    height: 100%;
+    max-width: 800px;
+    min-width: 400px;
+    padding: 48px;
+  }
+
+  .project-description{ 
+    width: 300px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .project-description-text {
+    font-size: 14px;
+  }
 }
