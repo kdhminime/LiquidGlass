@@ -37,7 +37,7 @@ body {
     inset 0 1px 1px rgba(255, 255, 255, 0.4),
     inset 0 -1px 1px rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(2.5px);
-  -webkit-backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(2.5px);
   border: 1.5px solid transparent;
   background-clip: padding-box;
 }
@@ -186,7 +186,7 @@ body {
 }
 
 .title {
-  font-size: 24px;
+  font-size: 20px;
   padding-bottom: 16px;
 }
 
@@ -230,6 +230,9 @@ body {
   transform: translateY(-50%);
   width: 120px;
   height: 44px;
+  z-index: 1;
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
 }
 
 .project-viewer {
@@ -242,10 +245,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 24px;
+  position: relative;
 }
 
 .arrow {
+  position: absolute;
   width: 60px;
   height: 60px;
   border: none;
@@ -255,7 +259,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+}
+
+.arrow-left {
+  right: calc(100% + 24px);
+}
+
+.arrow-right {
+  left: calc(100% + 24px);
 }
 
 /* Wide screens (16:9) - default, no changes needed */
